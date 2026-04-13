@@ -11,6 +11,7 @@
         <Description>A package for parsing raw Rust data packets and WorldData OUTSIDE of the Unity environment</Description>
         <PackageProjectUrl>https://github.com/Facepunch/Rust.Polyfill</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Facepunch/Rust.Polyfill</RepositoryUrl>
+        <PackageIcon>fp-img.png</PackageIcon>
     </PropertyGroup>
 
 </Project>
