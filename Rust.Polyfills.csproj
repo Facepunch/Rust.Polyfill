@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <Title>Rust.Polyfills</Title>
         <PackageId>Rust.Polyfills</PackageId>
         <Authors>Facepunch</Authors>
