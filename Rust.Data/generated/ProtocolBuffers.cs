@@ -175,6 +175,11 @@ namespace ProtoBuf
 
         [System.NonSerialized] public float timeOfDay;
 
+        /// <summary> 0 for night, 1 for day</summary>
+        [System.NonSerialized] public UnityEngine.Vector3 cameraPosition;
+
+        [System.NonSerialized] public UnityEngine.Vector3 cameraRotation;
+
         public partial class Entity
         {
             [System.NonSerialized] public global::NetworkableId entityId;
@@ -1040,6 +1045,8 @@ namespace ProtoBuf
 
         [System.NonSerialized] public int bbsCount;
 
+        [System.NonSerialized] public float mortarCooldown;
+
     }
 
     public partial class BaseProjectile
@@ -1895,6 +1902,12 @@ namespace ProtoBuf
 
         [System.NonSerialized] public int setToGrade;
 
+        [System.NonSerialized] public bool isSnapped;
+
+        [System.NonSerialized] public UnityEngine.Vector3 snappedPosition;
+
+        [System.NonSerialized] public UnityEngine.Vector3 snappedRotation;
+
     }
 
     public partial class CustomVitalInfo
@@ -2606,8 +2619,6 @@ namespace ProtoBuf
 
         [System.NonSerialized] public ProtoBuf.DeepSeaPortal deepSeaPortal;
 
-        [System.NonSerialized] public ProtoBuf.NPCMovementState npcMovementState;
-
         [System.NonSerialized] public ProtoBuf.BaseMountable baseMountable;
 
         [System.NonSerialized] public ProtoBuf.SmallEngine smallEngine;
@@ -2633,6 +2644,10 @@ namespace ProtoBuf
         [System.NonSerialized] public ProtoBuf.BoatBuildingStation boatBuildingStation;
 
         [System.NonSerialized] public ProtoBuf.DisplayingBoxStorage displayingBoxStorage;
+
+        [System.NonSerialized] public ProtoBuf.Workbench workbench;
+
+        [System.NonSerialized] public ProtoBuf.MortarData mortar;
 
     }
 
@@ -2678,6 +2693,8 @@ namespace ProtoBuf
         [System.NonSerialized] public float rain;
 
         [System.NonSerialized] public float engineTime;
+
+        [System.NonSerialized] public long rainGraceStartTicks;
 
     }
 
@@ -3863,6 +3880,12 @@ namespace ProtoBuf
 
     }
 
+    public partial class MortarData
+    {
+        [System.NonSerialized] public float angle;
+
+    }
+
     public partial class Motorboat
     {
         [System.NonSerialized] public global::NetworkableId storageid;
@@ -3876,6 +3899,12 @@ namespace ProtoBuf
         [System.NonSerialized] public int ammoItemID;
 
         [System.NonSerialized] public int ammoStackSize;
+
+    }
+
+    public partial class NavMeshData
+    {
+        [System.NonSerialized] public List<ProtoBuf.VectorList> polygons;
 
     }
 
@@ -3941,19 +3970,11 @@ namespace ProtoBuf
 
     }
 
-    public partial class NPCMovementState
-    {
-        [System.NonSerialized] public UnityEngine.Vector3 overrideDirection;
-
-    }
-
     public partial class NPCTargetState
     {
-        [System.NonSerialized] public global::NetworkableId targetId;
+        [System.NonSerialized] public UnityEngine.Vector3 lookDirection;
 
-        [System.NonSerialized] public UnityEngine.Vector3 targetLkp;
-
-        [System.NonSerialized] public bool targetIsVisible;
+        [System.NonSerialized] public float desiredSwimDepth;
 
     }
 
@@ -4091,6 +4112,8 @@ namespace ProtoBuf
 
         [System.NonSerialized] public List<UnityEngine.Vector3> pasteOffsets;
 
+        [System.NonSerialized] public bool autoAuth;
+
     }
 
     public partial class PathData
@@ -4160,6 +4183,42 @@ namespace ProtoBuf
             [System.NonSerialized] public UnityEngine.Color color;
 
         }
+
+    }
+
+    public partial class PerformanceReport
+    {
+        [System.NonSerialized] public int request_id;
+
+        [System.NonSerialized] public string user_id;
+
+        [System.NonSerialized] public float fps_average;
+
+        [System.NonSerialized] public int fps;
+
+        [System.NonSerialized] public int frame_id;
+
+        [System.NonSerialized] public float frame_time;
+
+        [System.NonSerialized] public float frame_time_average;
+
+        [System.NonSerialized] public long memory_system;
+
+        [System.NonSerialized] public long memory_collections;
+
+        [System.NonSerialized] public long memory_managed_heap;
+
+        [System.NonSerialized] public float realtime_since_startup;
+
+        [System.NonSerialized] public bool streamer_mode;
+
+        [System.NonSerialized] public int ping;
+
+        [System.NonSerialized] public int tasks_invokes;
+
+        [System.NonSerialized] public int tasks_load_balancer;
+
+        [System.NonSerialized] public int workshop_skins_queued;
 
     }
 
@@ -5345,6 +5404,8 @@ namespace ProtoBuf
     {
         [System.NonSerialized] public UnityEngine.Vector3 endPoint;
 
+        [System.NonSerialized] public int loadedAmmoItemDefId;
+
     }
 
     public partial class TirednessAboveAIEventData
@@ -5629,6 +5690,10 @@ namespace ProtoBuf
 
             [System.NonSerialized] public float receivedQuantityMultiplier;
 
+            [System.NonSerialized] public ulong sellSkinId;
+
+            [System.NonSerialized] public ulong costSkinId;
+
         }
 
         public partial class SellOrderContainer
@@ -5882,6 +5947,12 @@ namespace ProtoBuf
         [System.NonSerialized] public List<float> slackLevels;
 
         [System.NonSerialized] public global::NetworkableId clearedEntityId;
+
+    }
+
+    public partial class Workbench
+    {
+        [System.NonSerialized] public List<int> upgradeItemIds;
 
     }
 

@@ -57,7 +57,7 @@ namespace SilentOrbit.ProtocolBuffers
 		{
 			Profiler.BeginSample( "ProtoParser.ReadString" );
 			
-			int length = (int)ReadUInt32( stream );
+			int length = Math.Min((int)ReadUInt32( stream ), stream.Length);
 			if ( length <= 0 )
 			{
 				Profiler.EndSample();
@@ -1032,6 +1032,11 @@ public sealed partial class BufferStream : IDisposable, Facepunch.Pool.IPooled
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public void Skip(int count)
 	{
+		if (count < 0)
+		{
+			throw new ArgumentOutOfRangeException(nameof(count));
+		}
+
 		 // todo: bounds checks?
 		_position += count;
 	}
